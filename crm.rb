@@ -6,6 +6,11 @@ require 'sinatra'
 
 get "/" do
   @crm_app_name = "Richard's CRM"
+  @date = Time.new.ctime
   erb :index
+end
 
+get "/contacts/" do
+
+  erb :contacts
 end
