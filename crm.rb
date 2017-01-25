@@ -11,11 +11,11 @@ require 'sinatra'
 
 get "/" do
   @crm_app_name = "Richard's CRM"
-  @date = Time.new.ctime
   erb :index
 end
 
 get "/contacts/" do
+  @num_contacts = Contact.all.count
   erb :contacts
 end
 
@@ -25,5 +25,5 @@ end
 
 post "/contacts/" do
   Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
-  redirect to("/contacts/")
+  redirect to("/")
 end

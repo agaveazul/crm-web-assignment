@@ -5,12 +5,14 @@
     <title></title>
   </head>
   <body>
-    <h1> All Contacts</h1>
-
+    <div class=contacts-container>
+    <div class="total">There are <span class="total-num"><%=@num_contacts%></span> contacts</div>
     <ul>
       <% Contact.all.each do |contact| %>
-        <li><%= contact.first_name %> <%= contact.last_name %> <%= contact.email %> <%= contact.note %></li>
+        <li class="contact-style"><%= contact.first_name %> <%= contact.last_name %> (<%= contact.email %>) <br>
+           <span class="contact-options"> <a href="#">Edit</a> | <a href="#">Delete</a> </li>
       <% end %>
     </ul>
+  </div>
   </body>
 </html>
