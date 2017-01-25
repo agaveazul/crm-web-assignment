@@ -6,14 +6,16 @@ require_relative 'contact'
 require 'sinatra'
 
 Contact.create("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
+Contact.create("Rich", "Strauss", "rich@facebook.com", "VP")
+Contact.create("Ben", "Rod", "ben@facebook.com", "VP")
 
 get "/" do
   @crm_app_name = "Richard's CRM"
   erb :index
 end
 
-get "/contacts/1/" do
-  @contact = Contact.find(1)
+get "/contacts/:id/" do
+  @contact = Contact.find(params[:id].to_i)
   erb :show_contact
 end
 
