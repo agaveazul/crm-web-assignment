@@ -5,13 +5,16 @@
 require_relative 'contact'
 require 'sinatra'
 
-# Contact.create("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
-# Contact.create("Sergey", "Brin", "sergey@google.com", "Co-Founder")
-# Contact.create("Steve", "Jobs", "steve@apple.com", "Visionary")
+Contact.create("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
 
 get "/" do
   @crm_app_name = "Richard's CRM"
   erb :index
+end
+
+get "/contacts/1/" do
+  @contact = Contact.find(1)
+  erb :show_contact
 end
 
 get "/contacts/" do
