@@ -10,7 +10,7 @@
     <ul>
       <% Contact.all.each do |contact| %>
         <li class="contact-style"><%= contact.first_name %> <%= contact.last_name %> (<%= contact.email %>) <br>
-           <span class="contact-options"> <a href="/contacts/<%= contact.id%>/">Edit</a> | <a href="#">Delete</a> </li>
+           <span class="contact-options"> <a href="/contacts/<%= contact.id%>/edit/">Edit</a> | <a href="#">Delete</a> </li>
       <% end %>
     </ul>
   </div>
