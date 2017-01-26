@@ -28,11 +28,17 @@ get "/contacts" do
   erb :contacts
 end
 
-
-
 post "/contacts" do
-  Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
-  redirect to("/")
+  contact = Contact.create(
+    first_name: params[:first_name],
+    last_name: params[:last_name],
+    email: params[:email],
+    note: params[:note]
+  )
+  redirect to ("/contacts")
+  # The Contact class method of creating instance variables and storing them
+  # Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
+  # redirect to("/")
 end
 
 get "/contacts/:id/edit" do
